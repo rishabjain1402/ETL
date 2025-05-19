@@ -68,8 +68,8 @@ The goal is to estimate the prevalence of a chronic disease across demographic s
 
 ## How to Run
 
-1. Place the raw data files in a `data/` folder
-2. Run the ETL pipeline with Spark:
+1. Download the raw data files in the `data/` folder
+2. Run the ETL pipeline with Spark on the main.py file:
 ```bash
 python3 p1.py data/nhis_input.csv data/brfss_input.json
 ```

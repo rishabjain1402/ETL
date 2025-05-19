@@ -72,5 +72,6 @@ The goal is to estimate the prevalence of a chronic disease across demographic s
 2. Run the ETL pipeline with Spark:
 ```bash
 python3 p1.py data/nhis_input.csv data/brfss_input.json
+```
 
 3. Open eda.ipynb to explore the data visually

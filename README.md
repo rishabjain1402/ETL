@@ -26,7 +26,7 @@ The goal is to estimate the prevalence of a chronic disease across demographic s
 - Apache Spark (PySpark, Spark SQL)  
 - Pandas, NumPy  
 - Matplotlib, Seaborn, Plotly (for EDA visualizations)  
-- Spark MLlib (Logistic Regression, Random Forest, Decision Tree)  
+- Spark MLlib (Logistic Regression, Random Forest)
 
 ---
 
@@ -63,6 +63,14 @@ The goal is to estimate the prevalence of a chronic disease across demographic s
   - Age group  
 - Heatmap of prevalence across age and race  
 - Sankey diagram showing flows from age → race → diabetes status  
+
+---
+
+## Machine Learning Algorithms
+
+- Random Forest and Logisitc Regression
+  - Predicitng on whether an indivsual will have diabetes given current features
+  
 
 ---
 

@@ -5,15 +5,7 @@ from pyspark.sql.functions import col, when, count, sum, lit, round
 
 
 def create_dataframe(filepath, format, spark):
-    """
-    Create a spark df given a filepath and format.
-
-    :param filepath: <str>, the filepath
-    :param format: <str>, the file format (e.g. "csv" or "json")
-    :param spark: <str> the spark session
-
-    :return: the spark df uploaded
-    """
+    
     if format.lower() == "csv":
         # Inferred schema so numeric columns remain numeric
         spark_df = (
@@ -31,12 +23,7 @@ def create_dataframe(filepath, format, spark):
 
 
 def transform_nhis_data(nhis_df):
-    """
-    Transform NHIS data to match BRFSS format
-
-    :param nhis_df: spark df containing NHIS data
-    :return: spark df, partially transformed NHIS data
-    """
+    
     from pyspark.sql.functions import col, when, lit
 
     # Filter out invalid or null SEX values: keep only 1 or 2
@@ -82,9 +69,7 @@ def transform_nhis_data(nhis_df):
 
 
 def join_data(brfss_df, nhis_df):
-    """
-    Join BRFSS and NHIS dataframes
-    """
+    
     joined_df = brfss_df.join(
         nhis_df.select("SEX", "_AGEG5YR", "_IMPRACE", "DIBEV1"),
         on=["SEX", "_AGEG5YR", "_IMPRACE"],
@@ -98,9 +83,7 @@ def join_data(brfss_df, nhis_df):
 
 
 def calculate_statistics(joined_df):
-    """
-    Calculate prevalence statistics and save as CSV
-    """
+   
     # Add indicator column
     stats_df = joined_df.withColumn(
         "disease_indicator", when(col("DIBEV1") == 1, 1).otherwise(0)
